@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fahix.com - Digital Marketplace</title>
+    <title>Fahix.com - Professional Marketplace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600;700&display=swap');
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #f4f5f7; color: #1a1a1a; }
+        body { background-color: #f8fafc; color: #1e293b; }
 
-        /* Short Header */
+        /* Header Shortened */
         header { background: #fff; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-family: 'Dancing Script', cursive; font-size: 32px; font-weight: 700; color: #2563eb; }
+        .logo { font-family: 'Dancing Script', cursive; font-size: 32px; font-weight: 700; color: #2563eb; cursor: pointer; }
         .logo span { color: #f97316; font-family: 'Dancing Script', cursive; }
 
         .search-bar { display: flex; align-items: center; background: #f1f5f9; border-radius: 20px; padding: 5px 15px; width: 30%; border: 1px solid #e2e8f0; }
@@ -21,51 +21,53 @@
 
         .nav-links { display: flex; gap: 20px; align-items: center; font-weight: 600; font-size: 14px; }
         .nav-links a { text-decoration: none; color: #475569; }
-        
-        /* 3-Dot Menu for Mobile */
-        .menu-dots { display: none; font-size: 20px; cursor: pointer; }
+        .icon-btn { font-size: 18px; color: #1e293b; cursor: pointer; position: relative; }
+        .badge { position: absolute; top: -8px; right: -10px; background: #ef4444; color: #fff; font-size: 10px; padding: 2px 5px; border-radius: 50%; }
 
-        /* Welcome Section with Cute Celebration Theme 🎊 */
+        /* Welcome Section - Celebration Background 🎊🎉 */
         .hero { 
-            text-align: center; padding: 70px 20px; 
-            background: #fff0f5 url('https://www.transparenttextures.com/patterns/confetti.png'); 
-            border-bottom: 3px solid #f97316;
+            text-align: center; padding: 60px 20px; 
+            background: #fff5f8 url('https://www.transparenttextures.com/patterns/celebration.png');
+            border-bottom: 2px solid #f97316;
         }
-        .hero h1 { font-family: 'Dancing Script', cursive; font-size: 55px; color: #d63384; margin-bottom: 10px; }
-        .hero p { font-size: 18px; color: #666; }
+        .hero h1 { font-family: 'Dancing Script', cursive; font-size: 55px; color: #d63384; margin-bottom: 5px; }
+        .hero p { font-size: 18px; color: #64748b; font-weight: 500; }
 
-        /* Category Filter */
-        .categories { padding: 20px 5%; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .cat-btn { padding: 8px 20px; border-radius: 20px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-weight: 600; }
-        .cat-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+        /* Categories Filter */
+        .filter-section { padding: 20px 5%; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        .filter-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid #e2e8f0; background: #fff; cursor: pointer; font-weight: 600; font-size: 13px; }
+        .filter-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
 
         /* Marketplace Grid */
-        .marketplace { padding: 20px 5% 60px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+        .marketplace { padding: 10px 5% 60px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
         
-        /* Product Card */
-        .card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 180px; object-fit: cover; }
-        .card-info { padding: 15px; }
-        .card-tag { font-size: 10px; font-weight: 700; color: #f97316; text-transform: uppercase; }
-        .card-title { font-size: 16px; font-weight: 700; margin: 5px 0; height: 40px; }
-        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
-        .price { font-size: 18px; font-weight: 700; color: #10b981; }
-        .add-btn { background: #f1f5f9; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+        .card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .card img { width: 100%; height: 160px; object-fit: cover; background: #f8fafc; }
+        .card-body { padding: 15px; }
+        .card-cat { font-size: 10px; color: #f97316; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
+        .card-title { font-size: 15px; font-weight: 700; height: 38px; overflow: hidden; color: #1e293b; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+        .price { font-size: 17px; font-weight: 800; color: #10b981; }
+        .buy-btn { background: #f1f5f9; border: none; padding: 6px 10px; border-radius: 6px; cursor: pointer; color: #2563eb; }
 
         /* Footer */
-        footer { background: #0f172a; color: #e2e8f0; padding: 50px 5% 20px; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        .footer-col h3 { color: #fff; margin-bottom: 15px; }
-        .contact-item { margin-bottom: 10px; font-size: 14px; }
-        .payment-icons { font-size: 25px; display: flex; gap: 15px; margin-top: 15px; }
-        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; margin-top: 30px; text-align: center; font-size: 12px; color: #64748b; }
+        footer { background: #0f172a; color: #e2e8f0; padding: 50px 5% 20px; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .footer-col h3 { color: #fff; margin-bottom: 20px; font-size: 18px; }
+        .contact-info p { margin-bottom: 12px; font-size: 14px; display: flex; align-items: center; gap: 10px; }
+        .contact-info i { color: #38bdf8; width: 15px; }
+        .payment-methods { display: flex; gap: 15px; font-size: 28px; margin-top: 20px; color: #94a3b8; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; margin-top: 40px; text-align: center; font-size: 12px; color: #64748b; }
+
+        /* Dot Menu for Mobile */
+        .dot-menu { display: none; cursor: pointer; font-size: 20px; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .menu-dots { display: block; }
-            .search-bar { width: 50%; }
+            .dot-menu { display: block; }
+            .search-bar { width: 45%; }
         }
     </style>
 </head>
@@ -73,100 +75,124 @@
 
     <header>
         <div class="logo">Fahix<span>.com</span></div>
+        
         <div class="search-bar">
-            <input type="text" id="shopSearch" placeholder="Search..." onkeyup="searchFn()">
+            <input type="text" id="mainSearch" placeholder="Search products..." onkeyup="searchHandler()">
             <i class="fas fa-search"></i>
         </div>
+
         <nav class="nav-links">
-            <a href="#">Marketplace</a>
-            <a href="#">Seller</a>
-            <i class="fas fa-shopping-cart"></i>
-            <a href="#" style="background:#2563eb; color:white; padding:6px 15px; border-radius:5px">Login</a>
+            <a href="#">Explore</a>
+            <a href="#">Deals</a>
+            <div class="icon-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge" id="cartCount">0</span>
+            </div>
+            <a href="#" style="background:#2563eb; color:white; padding:6px 16px; border-radius:6px">Login</a>
         </nav>
-        <div class="menu-dots"><i class="fas fa-ellipsis-v"></i></div>
+
+        <div class="dot-menu"><i class="fas fa-ellipsis-v"></i></div>
     </header>
 
     <section class="hero">
         <h1>Welcome to Fahix.com 🎊</h1>
-        <p>Premium Assets for Professional Creators</p>
+        <p>Your Premium Destination for Tech, Pets & Daily Essentials</p>
     </section>
 
-    <div class="categories">
-        <button class="cat-btn active" onclick="filterFn('all')">All Items</button>
-        <button class="cat-btn" onclick="filterFn('web')">Web Design</button>
-        <button class="cat-btn" onclick="filterFn('ui')">UI Kit</button>
-        <button class="cat-btn" onclick="filterFn('app')">Mobile App</button>
+    <div class="filter-section">
+        <button class="filter-btn active" onclick="filterItems('all')">All Products</button>
+        <button class="filter-btn" onclick="filterItems('tech')">Tech Products</button>
+        <button class="filter-btn" onclick="filterItems('daily')">Daily Needs</button>
+        <button class="filter-btn" onclick="filterItems('pet')">Pet Supplies</button>
     </div>
 
     <section class="marketplace">
-        <div class="grid" id="productContainer">
+        <div class="grid" id="productGrid">
             </div>
     </section>
 
     <footer>
-        <div class="footer-content">
+        <div class="footer-grid">
             <div class="footer-col">
                 <h3>Fahix.com</h3>
-                <p>The best place to buy digital templates and assets.</p>
+                <p style="font-size: 14px; line-height: 1.6; color: #94a3b8;">The most trusted marketplace for all your digital and physical product needs. Quality guaranteed.</p>
+            </div>
+            <div class="footer-col contact-info">
+                <h3>Contact & Support</h3>
+                <p><i class="fas fa-envelope"></i> support@fahix.com</p>
+                <p><i class="fas fa-headset"></i> Hotline: +8801317621550</p>
+                <p><i class="fas fa-map-marker-alt"></i> Boalkhali, Chittagong, Bangladesh</p>
             </div>
             <div class="footer-col">
-                <h3>Contact</h3>
-                <div class="contact-item">Email: support@fahix.com</div>
-                <div class="contact-item">Hotline: +8801317621550</div>
-            </div>
-            <div class="footer-col">
-                <h3>Payments</h3>
-                <div class="payment-icons">
+                <h3>Safe Payments</h3>
+                <div class="payment-methods">
                     <i class="fab fa-cc-paypal"></i>
                     <i class="fab fa-cc-visa"></i>
                     <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">© 2026 Fahix.com. All Rights Reserved.</div>
+        <div class="footer-bottom">
+            &copy; 2026 Fahix.com. All Rights Reserved.
+        </div>
     </footer>
 
     <script>
-        const data = [
-            {id:1, t:"Admin Dashboard Pro", c:"web", p:45}, {id:2, t:"Food Delivery App", c:"app", p:80},
-            {id:3, t:"NFT Marketplace UI", c:"ui", p:35}, {id:4, t:"E-learning Website", c:"web", p:55},
-            {id:5, t:"Fitness Tracker App", c:"app", p:40}, {id:6, t:"Medical Dashboard", c:"ui", p:30},
-            {id:7, t:"Real Estate Theme", c:"web", p:49}, {id:8, t:"Travel Booking App", c:"app", p:65},
-            {id:9, t:"SaaS Landing Page", c:"web", p:25}, {id:10, t:"Crypto Wallet UI", c:"ui", p:42},
-            {id:11, t:"Blog CMS Template", c:"web", p:20}, {id:12, t:"E-commerce App UI", c:"ui", p:38},
-            {id:13, t:"VPN Service App", c:"app", p:50}, {id:14, t:"Modern Portfolio", c:"web", p:15},
-            {id:15, t:"Chat Application", c:"app", p:70}, {id:16, t:"Finance Analytics", c:"ui", p:45},
-            {id:17, t:"Yoga & Wellness", c:"web", p:30}, {id:18, t:"News Portal App", c:"app", p:55},
-            {id:19, t:"Icon Pack Premium", c:"ui", p:12}, {id:20, t:"Restaurant Website", c:"web", p:28}
-        ];
+        // Generate 100 Products
+        const productData = [];
+        const categories = ['tech', 'daily', 'pet'];
+        const techNames = ['Wireless Mouse', 'Gaming Keyboard', 'Smart Watch', 'Bluetooth Speaker', 'USB-C Hub', 'Monitor Stand', 'Webcam 4K', 'SSD 1TB'];
+        const dailyNames = ['Organic Soap', 'Water Bottle', 'Tote Bag', 'Notebook', 'Coffee Mug', 'Scented Candle', 'Umbrella'];
+        const petNames = ['Dog Chew Toy', 'Cat Litter Box', 'Pet Grooming Brush', 'Bird Cage', 'Fish Food', 'Leash & Harness'];
 
-        function render(items) {
-            document.getElementById('productContainer').innerHTML = items.map(i => `
+        for(let i=1; i<=100; i++) {
+            let cat = categories[i % 3];
+            let name = "";
+            if(cat === 'tech') name = techNames[Math.floor(Math.random() * techNames.length)] + " " + i;
+            else if(cat === 'daily') name = dailyNames[Math.floor(Math.random() * dailyNames.length)] + " " + i;
+            else name = petNames[Math.floor(Math.random() * petNames.length)] + " " + i;
+
+            productData.push({
+                id: i,
+                name: name,
+                category: cat,
+                price: Math.floor(Math.random() * 200) + 10,
+                img: `https://picsum.photos/seed/fahix${i}/400/300`
+            });
+        }
+
+        const grid = document.getElementById('productGrid');
+
+        function display(items) {
+            grid.innerHTML = items.map(p => `
                 <div class="card">
-                    <img src="https://picsum.photos/seed/${i.id}/400/300" alt="">
-                    <div class="card-info">
-                        <div class="card-tag">${i.c}</div>
-                        <div class="card-title">${i.t}</div>
+                    <img src="${p.img}" alt="${p.name}">
+                    <div class="card-body">
+                        <div class="card-cat">${p.category}</div>
+                        <div class="card-title">${p.name}</div>
                         <div class="card-footer">
-                            <span class="price">$${i.p}</span>
-                            <button class="add-btn"><i class="fas fa-plus"></i></button>
+                            <span class="price">$${p.price}</span>
+                            <button class="buy-btn"><i class="fas fa-cart-plus"></i></button>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
 
-        render(data);
+        // Initial load
+        display(productData);
 
-        function filterFn(cat) {
-            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        function filterItems(cat) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
-            render(cat === 'all' ? data : data.filter(i => i.c === cat));
+            if(cat === 'all') display(productData);
+            else display(productData.filter(p => p.category === cat));
         }
 
-        function searchFn() {
-            let val = document.getElementById('shopSearch').value.toLowerCase();
-            render(data.filter(i => i.t.toLowerCase().includes(val)));
+        function searchHandler() {
+            let term = document.getElementById('mainSearch').value.toLowerCase();
+            display(productData.filter(p => p.name.toLowerCase().includes(term)));
         }
     </script>
 </body>
