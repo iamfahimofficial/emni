@@ -3,194 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fahix.com - Professional Marketplace</title>
+    <title>Fahix.com - Digital Marketplace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@300;400;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Inter:wght@400;600;700&display=swap');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; transition: all 0.3s ease; }
-        body { background-color: #f8fafc; color: #1a1a1a; overflow-x: hidden; }
-        
-        /* --- Header (Shortened) --- */
-        header { background: #ffffff; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-family: 'Dancing Script', cursive; font-size: 34px; font-weight: 700; color: #2563eb; cursor: pointer; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #f4f5f7; color: #1a1a1a; }
+
+        /* Short Header */
+        header { background: #fff; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-family: 'Dancing Script', cursive; font-size: 32px; font-weight: 700; color: #2563eb; }
         .logo span { color: #f97316; font-family: 'Dancing Script', cursive; }
 
-        .search-bar { display: flex; align-items: center; background: #f1f5f9; border-radius: 30px; padding: 5px 15px; width: 35%; border: 1px solid #e2e8f0; }
-        .search-bar input { border: none; background: transparent; outline: none; padding: 8px; width: 100%; font-size: 14px; }
-        
+        .search-bar { display: flex; align-items: center; background: #f1f5f9; border-radius: 20px; padding: 5px 15px; width: 30%; border: 1px solid #e2e8f0; }
+        .search-bar input { border: none; background: transparent; outline: none; width: 100%; font-size: 14px; }
+
         .nav-links { display: flex; gap: 20px; align-items: center; font-weight: 600; font-size: 14px; }
         .nav-links a { text-decoration: none; color: #475569; }
-        .nav-links a:hover { color: #2563eb; }
+        
+        /* 3-Dot Menu for Mobile */
+        .menu-dots { display: none; font-size: 20px; cursor: pointer; }
 
-        /* --- Welcome Hero Section (Cute Animated Background) --- */
+        /* Welcome Section with Cute Celebration Theme 🎊 */
         .hero { 
-            text-align: center; padding: 100px 20px; 
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: white; border-radius: 0 0 50px 50px;
+            text-align: center; padding: 70px 20px; 
+            background: #fff0f5 url('https://www.transparenttextures.com/patterns/confetti.png'); 
+            border-bottom: 3px solid #f97316;
         }
-        @keyframes gradientBG { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
-        
-        .hero h1 { font-family: 'Dancing Script', cursive; font-size: 65px; text-shadow: 2px 4px 10px rgba(0,0,0,0.2); margin-bottom: 10px; }
-        .hero p { font-size: 20px; opacity: 0.9; font-weight: 300; }
+        .hero h1 { font-family: 'Dancing Script', cursive; font-size: 55px; color: #d63384; margin-bottom: 10px; }
+        .hero p { font-size: 18px; color: #666; }
 
-        /* --- Categories Filter --- */
-        .filter-nav { display: flex; justify-content: center; gap: 15px; padding: 30px 5%; flex-wrap: wrap; }
-        .filter-btn { padding: 10px 25px; border-radius: 25px; border: none; background: white; cursor: pointer; font-weight: 600; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .filter-btn.active { background: #2563eb; color: white; }
+        /* Category Filter */
+        .categories { padding: 20px 5%; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .cat-btn { padding: 8px 20px; border-radius: 20px; border: 1px solid #ddd; background: #fff; cursor: pointer; font-weight: 600; }
+        .cat-btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
 
-        /* --- Marketplace Grid --- */
-        .marketplace { padding: 20px 5% 80px; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
+        /* Marketplace Grid */
+        .marketplace { padding: 20px 5% 60px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
         
-        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #f1f5f9; cursor: pointer; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        /* Product Card */
+        .card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
+        .card:hover { transform: translateY(-5px); }
         .card img { width: 100%; height: 180px; object-fit: cover; }
-        .card-body { padding: 15px; }
-        .card-cat { font-size: 11px; color: #f97316; font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
-        .card-title { font-size: 16px; font-weight: 700; height: 40px; overflow: hidden; }
-        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
-        .price { font-size: 18px; font-weight: 800; color: #10b981; }
-        .add-btn { background: #2563eb; color: white; border: none; padding: 8px 12px; border-radius: 8px; font-size: 12px; }
+        .card-info { padding: 15px; }
+        .card-tag { font-size: 10px; font-weight: 700; color: #f97316; text-transform: uppercase; }
+        .card-title { font-size: 16px; font-weight: 700; margin: 5px 0; height: 40px; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .price { font-size: 18px; font-weight: 700; color: #10b981; }
+        .add-btn { background: #f1f5f9; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
 
-        /* --- Footer --- */
-        footer { background: #0f172a; color: #e2e8f0; padding: 60px 5% 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
-        .footer-col h3 { color: white; margin-bottom: 20px; }
-        .footer-col p, .footer-col li { font-size: 14px; color: #94a3b8; line-height: 2; list-style: none; }
-        .payment-icons { font-size: 30px; display: flex; gap: 15px; margin-top: 15px; color: #cbd5e1; }
-        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; text-align: center; color: #64748b; font-size: 13px; }
+        /* Footer */
+        footer { background: #0f172a; color: #e2e8f0; padding: 50px 5% 20px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .footer-col h3 { color: #fff; margin-bottom: 15px; }
+        .contact-item { margin-bottom: 10px; font-size: 14px; }
+        .payment-icons { font-size: 25px; display: flex; gap: 15px; margin-top: 15px; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 20px; margin-top: 30px; text-align: center; font-size: 12px; color: #64748b; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-dots { display: block; }
+            .search-bar { width: 50%; }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo" onclick="location.reload()">Fahix<span>.com</span></div>
+        <div class="logo">Fahix<span>.com</span></div>
         <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search items..." onkeyup="searchProduct()">
-            <i class="fas fa-search" style="color:#64748b"></i>
+            <input type="text" id="shopSearch" placeholder="Search..." onkeyup="searchFn()">
+            <i class="fas fa-search"></i>
         </div>
         <nav class="nav-links">
             <a href="#">Marketplace</a>
-            <a href="#">Premium</a>
-            <div style="position:relative; cursor:pointer;">
-                <i class="fas fa-shopping-cart" style="font-size:20px"></i>
-                <span style="position:absolute; top:-10px; right:-10px; background:#ef4444; color:white; border-radius:50%; padding:2px 6px; font-size:10px;">0</span>
-            </div>
-            <a href="#" style="background:#2563eb; color:white; padding:8px 15px; border-radius:8px">Login</a>
+            <a href="#">Seller</a>
+            <i class="fas fa-shopping-cart"></i>
+            <a href="#" style="background:#2563eb; color:white; padding:6px 15px; border-radius:5px">Login</a>
         </nav>
+        <div class="menu-dots"><i class="fas fa-ellipsis-v"></i></div>
     </header>
 
     <section class="hero">
-        <h1>Welcome to Fahix.com</h1>
-        <p>আপনাকে স্বাগতম! আমাদের প্রিমিয়াম ডিজিটাল মার্কেটপ্লেসে আপনার পছন্দের সেরা প্রজেক্টটি খুঁজে নিন।</p>
+        <h1>Welcome to Fahix.com 🎊</h1>
+        <p>Premium Assets for Professional Creators</p>
     </section>
 
-    <div class="filter-nav">
-        <button class="filter-btn active" onclick="filterItems('all')">All Products</button>
-        <button class="filter-btn" onclick="filterItems('web')">Web Design</button>
-        <button class="filter-btn" onclick="filterItems('ui')">UI/UX Kit</button>
-        <button class="filter-btn" onclick="filterItems('gfx')">Graphics</button>
-        <button class="filter-btn" onclick="filterItems('app')">Mobile Apps</button>
+    <div class="categories">
+        <button class="cat-btn active" onclick="filterFn('all')">All Items</button>
+        <button class="cat-btn" onclick="filterFn('web')">Web Design</button>
+        <button class="cat-btn" onclick="filterFn('ui')">UI Kit</button>
+        <button class="cat-btn" onclick="filterFn('app')">Mobile App</button>
     </div>
 
     <section class="marketplace">
-        <div class="product-grid" id="productGrid">
+        <div class="grid" id="productContainer">
             </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
+        <div class="footer-content">
             <div class="footer-col">
                 <h3>Fahix.com</h3>
-                <p>বিশ্বস্ত ডিজিটাল রিসোর্স মার্কেটপ্লেস। আমরা কোয়ালিটি এবং সিকিউরিটিতে বিশ্বাসী।</p>
+                <p>The best place to buy digital templates and assets.</p>
             </div>
             <div class="footer-col">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-envelope"></i> support@fahix.com</p>
-                <p><i class="fas fa-headset"></i> Hotline: +(88) 01317621550</p>
+                <h3>Contact</h3>
+                <div class="contact-item">Email: support@fahix.com</div>
+                <div class="contact-item">Hotline: +8801317621550</div>
             </div>
             <div class="footer-col">
-                <h3>Payment Methods</h3>
+                <h3>Payments</h3>
                 <div class="payment-icons">
                     <i class="fab fa-cc-paypal"></i>
                     <i class="fab fa-cc-visa"></i>
                     <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-apple-pay"></i>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 Fahix.com. All rights reserved.
-        </div>
+        <div class="footer-bottom">© 2026 Fahix.com. All Rights Reserved.</div>
     </footer>
 
     <script>
-        // Product Data (20 Items)
-        const products = [
-            { id:1, name: "E-commerce React Dashboard", cat: "web", price: 45, img: "https://picsum.photos/seed/p1/400/300" },
-            { id:2, name: "Finance Mobile App UI", cat: "ui", price: 29, img: "https://picsum.photos/seed/p2/400/300" },
-            { id:3, name: "3D Illustration Pack", cat: "gfx", price: 15, img: "https://picsum.photos/seed/p3/400/300" },
-            { id:4, name: "Educational Website Template", cat: "web", price: 39, img: "https://picsum.photos/seed/p4/400/300" },
-            { id:5, name: "Social Media App Flutter", cat: "app", price: 89, img: "https://picsum.photos/seed/p5/400/300" },
-            { id:6, name: "Crypto Portfolio UI Kit", cat: "ui", price: 35, img: "https://picsum.photos/seed/p6/400/300" },
-            { id:7, name: "Corporate Identity Bundle", cat: "gfx", price: 20, img: "https://picsum.photos/seed/p7/400/300" },
-            { id:8, name: "Delivery App Source Code", cat: "app", price: 99, img: "https://picsum.photos/seed/p8/400/300" },
-            { id:9, name: "Real Estate Landing Page", cat: "web", price: 25, img: "https://picsum.photos/seed/p9/400/300" },
-            { id:10, name: "Minimalist Icon Set", cat: "gfx", price: 10, img: "https://picsum.photos/seed/p10/400/300" },
-            { id:11, name: "Hospital Management System", cat: "web", price: 150, img: "https://picsum.photos/seed/p11/400/300" },
-            { id:12, name: "Travel Guide App UI", cat: "ui", price: 22, img: "https://picsum.photos/seed/p12/400/300" },
-            { id:13, name: "NFT Marketplace UI Kit", cat: "ui", price: 40, img: "https://picsum.photos/seed/p13/400/300" },
-            { id:14, name: "Portfolio One Page HTML", cat: "web", price: 15, img: "https://picsum.photos/seed/p14/400/300" },
-            { id:15, name: "Restaurant POS Android", cat: "app", price: 75, img: "https://picsum.photos/seed/p15/400/300" },
-            { id:16, name: "Abstract Flyer Designs", cat: "gfx", price: 12, img: "https://picsum.photos/seed/p16/400/300" },
-            { id:17, name: "VPN App Interface", cat: "ui", price: 30, img: "https://picsum.photos/seed/p17/400/300" },
-            { id:18, name: "Online Course Platform", cat: "web", price: 120, img: "https://picsum.photos/seed/p18/400/300" },
-            { id:19, name: "Modern Logo Templates", cat: "gfx", price: 18, img: "https://picsum.photos/seed/p19/400/300" },
-            { id:20, name: "Task Manager Mobile App", cat: "app", price: 55, img: "https://picsum.photos/seed/p20/400/300" }
+        const data = [
+            {id:1, t:"Admin Dashboard Pro", c:"web", p:45}, {id:2, t:"Food Delivery App", c:"app", p:80},
+            {id:3, t:"NFT Marketplace UI", c:"ui", p:35}, {id:4, t:"E-learning Website", c:"web", p:55},
+            {id:5, t:"Fitness Tracker App", c:"app", p:40}, {id:6, t:"Medical Dashboard", c:"ui", p:30},
+            {id:7, t:"Real Estate Theme", c:"web", p:49}, {id:8, t:"Travel Booking App", c:"app", p:65},
+            {id:9, t:"SaaS Landing Page", c:"web", p:25}, {id:10, t:"Crypto Wallet UI", c:"ui", p:42},
+            {id:11, t:"Blog CMS Template", c:"web", p:20}, {id:12, t:"E-commerce App UI", c:"ui", p:38},
+            {id:13, t:"VPN Service App", c:"app", p:50}, {id:14, t:"Modern Portfolio", c:"web", p:15},
+            {id:15, t:"Chat Application", c:"app", p:70}, {id:16, t:"Finance Analytics", c:"ui", p:45},
+            {id:17, t:"Yoga & Wellness", c:"web", p:30}, {id:18, t:"News Portal App", c:"app", p:55},
+            {id:19, t:"Icon Pack Premium", c:"ui", p:12}, {id:20, t:"Restaurant Website", c:"web", p:28}
         ];
 
-        const grid = document.getElementById('productGrid');
-
-        function displayProducts(items) {
-            grid.innerHTML = items.map(p => `
-                <div class="card" data-cat="${p.cat}">
-                    <img src="${p.img}" alt="${p.name}">
-                    <div class="card-body">
-                        <div class="card-cat">${p.cat.toUpperCase()}</div>
-                        <div class="card-title">${p.name}</div>
+        function render(items) {
+            document.getElementById('productContainer').innerHTML = items.map(i => `
+                <div class="card">
+                    <img src="https://picsum.photos/seed/${i.id}/400/300" alt="">
+                    <div class="card-info">
+                        <div class="card-tag">${i.c}</div>
+                        <div class="card-title">${i.t}</div>
                         <div class="card-footer">
-                            <span class="price">$${p.price}</span>
-                            <button class="add-btn">Add to Cart</button>
+                            <span class="price">$${i.p}</span>
+                            <button class="add-btn"><i class="fas fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
 
-        // Initial Display
-        displayProducts(products);
+        render(data);
 
-        // Category Filter Function
-        function filterItems(category) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        function filterFn(cat) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
-            
-            if(category === 'all') {
-                displayProducts(products);
-            } else {
-                const filtered = products.filter(p => p.cat === category);
-                displayProducts(filtered);
-            }
+            render(cat === 'all' ? data : data.filter(i => i.c === cat));
         }
 
-        // Search Function
-        function searchProduct() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = products.filter(p => p.name.toLowerCase().includes(query));
-            displayProducts(filtered);
+        function searchFn() {
+            let val = document.getElementById('shopSearch').value.toLowerCase();
+            render(data.filter(i => i.t.toLowerCase().includes(val)));
         }
     </script>
 </body>
